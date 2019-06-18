@@ -1,3 +1,7 @@
+$primary-color: #000;
+$secondary-color: rgb(148, 50, 118);
+
+
 .blog {
     position: relative;
 }
@@ -6,7 +10,7 @@
 
         .blog-view-all-link {
             text-transform: uppercase;
-            color: black;
+            color:$primary-color;
             text-decoration: none;
             letter-spacing: 0.05em;
         }
@@ -17,10 +21,11 @@
             font-weight: 300;
             font-size: 36px;
         }
+        
 
 
 .blog-item {
-    border-top: 1px solid #A98F6D;
+    border-top: 1px solid $secondary-color;
     padding: 3px;
 }
 
@@ -49,7 +54,7 @@
 
     .blog-item-more { 
         text-transform: uppercase;
-        color: black;
+        color: $primary-color;
         text-decoration: none;
         font-size: 14px;
     }
@@ -62,7 +67,7 @@
         height: .45em;
         width: .45em; 
         margin-left: .5em;
-        border: solid #A98F6D;
+        border: solid $secondary-color;
         border-width: .1em .1em 0 0;
         transform: rotate(45deg) translateY(-.05em);
     }
@@ -83,7 +88,7 @@
         top: 5px;
     }
     .blog-view-all {
-        border: .05em solid #A98F6D;  
+        border: .05em solid $secondary-color;  
         padding: .5em;
         text-align: center;
         width: 50%;
@@ -102,7 +107,7 @@
         width: 150px;
         height: 1px;
         margin: 0 auto 0;
-        background-color: #A98F6D;
+        background-color: $secondary-color;
         margin-bottom: 10px;
     }
     .blog-item-more{
@@ -155,7 +160,7 @@
             width: 150px;
             height: 1px;
             margin: 0 auto 0;
-            background-color: #A98F6D;
+            background-color: $secondary-color;
         }
        
 
@@ -169,7 +174,7 @@
                 width: 150px;
                 height: 1px;
                 margin: 0 auto 0;
-                background-color: #A98F6D;
+                background-color: $secondary-color;
             }
             .blog-view-all {
                 text-align: right;
