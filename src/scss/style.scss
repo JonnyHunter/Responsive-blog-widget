@@ -1,6 +1,7 @@
-//Color Variables
+//Colour Variables
 $primary-color: #000;
 $style-color: #A98F6D;
+$main-font: Helvetica, sans-serif;
 
 
 .blog {
@@ -21,7 +22,8 @@ $style-color: #A98F6D;
             text-align: center;
             font-weight: 300;
             font-size: 36px;
-        }
+            font-family: $main-font;
+            }
 
 
 .blog-item {
@@ -94,12 +96,12 @@ $style-color: #A98F6D;
         width: 50%;
         margin: auto;
         margin-top: 20px;
-        
+        &::after{
+            display: none;
+        }
     }
     
-    .blog-view-all::after {
-        display: none;
-    }
+    
 
     .blog-title:after {
         content: "";
@@ -154,21 +156,11 @@ $style-color: #A98F6D;
             top: 34px;
             right: 10px;
         }
-        .blog-title:after {
-            content: "";
-            display: block;
-            width: 150px;
-            height: 1px;
-            margin: 0 auto 0;
-            background-color: $style-color;
-        }
-       
+        //Example of nesting
+        .blog-title{
+            font-family: sans-serif;
 
-
-}
-
-@media screen and (min-width: 1025px){
-.blog-title:after {
+            &::after {
                 content: "";
                 display: block;
                 width: 150px;
@@ -176,6 +168,25 @@ $style-color: #A98F6D;
                 margin: 0 auto 0;
                 background-color: #A98F6D;
             }
+        }
+       
+
+
+}
+
+@media screen and (min-width: 1025px){
+            .blog-title{
+
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 150px;
+                    height: 1px;
+                    margin: 0 auto 0;
+                    background-color: #A98F6D;
+                }
+            }
+
             .blog-view-all {
                 text-align: right;
                 position: absolute;
