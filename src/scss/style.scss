@@ -1,5 +1,7 @@
  // Include Media - Breakpoints and media queries
  @import "../../node_modules/include-media/dist/include-media";
+ 
+ $breakpoints: (tablet: 728px , desktop: 1025px,);
 
 //Colour Variables
 $primary-color: #000;
@@ -19,6 +21,17 @@ $main-font: Arial, Helvetica, sans-serif;
             color: $primary-color;
             text-decoration: none;
             letter-spacing: 0.05em;
+
+            @include media("<tablet") {
+                width: 50%;
+                color: blue;
+                }
+            @include media(">=tablet","<desktop") {
+                color: green;
+            }
+            @include media(">=desktop"){
+                color: red;
+            }
         }
 
         .blog-title{
@@ -78,6 +91,7 @@ $main-font: Arial, Helvetica, sans-serif;
         transform: rotate(45deg) translateY(-.05em);
     }
 
-    @import './media.scss';
+
+  //  @import './media.scss';
 
         
