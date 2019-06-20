@@ -1,7 +1,11 @@
  // Include Media - Breakpoints and media queries
  @import "../../node_modules/include-media/dist/include-media";
  
- $breakpoints: (tablet: 728px , desktop: 1025px,);
+ $breakpoints: (
+     'phone': 320px, 
+     'tablet': 768px, 
+     'desktop': 1024px
+     );
 
 //Colour Variables
 $primary-color: #000;
@@ -14,38 +18,36 @@ $main-font: Arial, Helvetica, sans-serif;
     position: relative;
 }
 
+    .blog-view-all-link {
+        text-transform: uppercase;
+        color: $primary-color;
+        text-decoration: none;
+        letter-spacing: 0.05em
+    }
 
-
-        .blog-view-all-link {
-            text-transform: uppercase;
-            color: $primary-color;
-            text-decoration: none;
-            letter-spacing: 0.05em;
-
-            @include media("<tablet") {
-                width: 50%;
-                color: blue;
-                }
-            @include media(">=tablet","<desktop") {
-                color: green;
-            }
-            @include media(">=desktop"){
-                color: red;
-            }
+    .blog-title{
+        margin-bottom: 1em;
+        text-align: center;
+        font-weight: 300;
+        font-size: 36px;
+        font-family: $main-font;
         }
-
-        .blog-title{
-            margin-bottom: 1em;
-            text-align: center;
-            font-weight: 300;
-            font-size: 36px;
-            font-family: $main-font;
-            }
 
 
 .blog-item {
     border-top: 1px solid $style-color;
     padding: 3px;
+
+    @include media("<=tablet") {
+        position: relative;
+        padding-top: calc(54% + 12px);
+        padding-bottom: 10%;
+    }
+
+    @include media(">tablet") {
+        overflow: auto;
+    }
+        
 }
 
 
@@ -59,6 +61,18 @@ $main-font: Arial, Helvetica, sans-serif;
         position: static;
         float:left;
         padding-bottom: 50px;
+
+        @include media(">phone", "<=tablet") { 
+            position: absolute;
+            width: 100%;
+            height: auto;
+            top: 5px;
+        }
+
+        @include media(">tablet"){
+            float: left;
+        }
+
     }
 
     .blog-item-date {
@@ -90,8 +104,74 @@ $main-font: Arial, Helvetica, sans-serif;
         border-width: .1em .1em 0 0;
         transform: rotate(45deg) translateY(-.05em);
     }
+    
+    .blog-view-all{
+        @include media(">phone", "<=tablet") { 
+            border: 0.05em solid $style-color;
+            padding: .5em;
+            text-align: center;
+            width: 50%;
+            margin: auto;
+            margin-top: 20px;
+        }
 
+        @include media(">tablet") {
+            text-align: right;
+            position: absolute;
+            top: 34px;
+            right: 10px; 
+        }
 
+    }
+    .blog-item-title,
+    .blog-item-date,
+    .blog-item-excerpt,
+    .blog-item-more {
+        
+        @include media(">tablet"){
+            width: calc(100% - 320px);
+            float: right; 
+        }
+
+    }
+
+    .blog-view-all::after{
+
+        @include media("<=tablet") {
+            display: none;
+        }
+
+    }
+    .blog-title::after {
+        @include media(">phone") {
+            content: "";
+            display: block;
+            width: 150px;
+            height: 1px;
+            margin: 0 auto 0;
+            background-color: $style-color;
+            margin-bottom: 10px;
+        }
+        @include media(">tablet","<=desktop"){
+            content: "";
+            display: block;
+            width: 150px;
+            height: 1px;
+            margin: 0 auto 0;
+            background-color: $style-color;
+        }
+        /*@include media(">desktop"){
+            content: "";
+            display: block;
+            width: 150px;
+            height: 1px;
+            margin: 0 auto 0;
+            background-color: darken( $style-color, 10% );
+        }*/
+    }
+    
+        
+    
   //  @import './media.scss';
 
         
